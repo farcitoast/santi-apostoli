@@ -308,7 +308,7 @@ require('./routes/u14_routes.js')(app,calendari_inv);
 //U16
 require('./routes/u18_routes.js')(app,calendari_inv);
 //LIBERA MISTA
-require('./routes/libera_mista_routes.js')(app,calendari_inv,calendari_prim);
+require('./routes/libera_mista_routes.js')(app,calendari_inv);
 
 //404
 app.use( (req,res) =>{
