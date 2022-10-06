@@ -1,4 +1,4 @@
-{{#if va01}}
+{{!-- {{#if va01}}
 <div class="alert alert-primary alert-dismissible fade show text-md-center rounded-0 mb-0" role="alert">
 	<h5 class="d-inline"><span class="badge badge-primary">New</span></h5>
 	<a style="color:black" href="/ics/va01.ics">&nbsp;<strong>Salva</strong> le partite dei S. Apostoli U12 nel tuo calendario!</a>
@@ -15,11 +15,11 @@
 		<span aria-hidden="true">&times;</span>
 	</button>
 </div>
-{{/if}}
+{{/if}} --}}
 {{#if va11}}
 <div class="alert alert-primary alert-dismissible fade show text-md-center rounded-0 mb-0" role="alert">
 	<h5 class="d-inline"><span class="badge badge-primary">New</span></h5>
-	<a style="color:black" href="/ics/va11.ics">&nbsp;<strong>Salva</strong> le partite dei S. Apostoli U18 nel tuo calendario!</a>
+	<a style="color:black" href="/ics/va11.ics">&nbsp;<strong>Salva</strong> le partite dei S. Apostoli LIBERA FEMMINILE nel tuo calendario!</a>
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
 	</button>
@@ -58,7 +58,7 @@
 			</thead>
 			<tbody>
 			<!-- I use triple brackets instead of double because we want to load html, not plain text -->
-			<!-- calendar is a helper function defined in server.js in res.render(), which returns some html with the rows of the table -->
+			<!-- calendar is a helper function which returns some html with the rows of the table -->
 			{{{calendar}}}
 			</tbody>	
 		</table>		
@@ -84,7 +84,7 @@
 			</thead>
 			<tbody>
 			<!-- I use triple brackets instead of double because we want to load html, not plain text -->
-			<!-- rank is a helper function defined in server.js in res.render(), which returns some html with the rows of the table -->
+			<!-- rank is a helper function which returns some html with the rows of the table -->
 			{{{rank}}}
 			</tbody>	
 		</table>

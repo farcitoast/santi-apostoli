@@ -17,9 +17,12 @@ const categorie = {
     u12: 31,
     u14: 32,
     u18: 36,
+    libera_f: 40,
     libera_mista: 42
 }
 const calendari_inv = {
+    va11: [categorie.libera_f,4525],
+    va12: [categorie.libera_f,4526],
     va13: [categorie.libera_mista,4529],
     va14: [categorie.libera_mista,4531],
     va15: [categorie.libera_mista,4533]
@@ -151,6 +154,9 @@ function updateTables(){
                 // case "va11":
                 //     extractEvents(`${URL}/inv/u18/${cal}`,cal);
                 //     break;
+                case "va11":
+                    extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
+                    break;
                 case "va15":
                     extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
                     break;
@@ -307,6 +313,8 @@ require('./routes/u12_routes.js')(app,calendari_inv);
 require('./routes/u14_routes.js')(app,calendari_inv);
 //U16
 require('./routes/u18_routes.js')(app,calendari_inv);
+//LIBERA FEMMINILE
+require('./routes/libera_f_routes.js')(app,calendari_inv);
 //LIBERA MISTA
 require('./routes/libera_mista_routes.js')(app,calendari_inv);
 
