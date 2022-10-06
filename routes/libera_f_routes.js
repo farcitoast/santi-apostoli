@@ -16,9 +16,9 @@ module.exports = function(app,calendari_inv,calendari_prim)
             }
         });
     });
-    app.get('/inv/libera-f/va14', (req, res) =>{
-        const calendar_rows = fs.readFileSync('cache/table-'+calendari_inv.va14[1]+'-CALENDAR.html');
-        const rank_rows = fs.readFileSync('cache/table-'+calendari_inv.va14[1]+'-RANKING.html');
+    app.get('/inv/libera-f/va12', (req, res) =>{
+        const calendar_rows = fs.readFileSync('cache/table-'+calendari_inv.va12[1]+'-CALENDAR.html');
+        const rank_rows = fs.readFileSync('cache/table-'+calendari_inv.va12[1]+'-RANKING.html');
         
         res.render('table',{
             active_libera_f: true,

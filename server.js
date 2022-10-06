@@ -11,16 +11,17 @@ const port = 3000;
 const app = express();
 app.use(device.capture());
 
-const URL = 'https://santi-apostoli.onrender.com/'
+const URL = 'https://santi-apostoli.onrender.com'
 //Codici calendari e categorie
 const categorie = {
-    u12: 31,
-    u14: 32,
-    u18: 36,
+    u13: 30,
+    u20: 38,
     libera_f: 40,
     libera_mista: 42
 }
 const calendari_inv = {
+    va02: [categorie.u13,4508],
+    va09: [categorie.u20,4523],
     va11: [categorie.libera_f,4525],
     va12: [categorie.libera_f,4526],
     va13: [categorie.libera_mista,4529],
@@ -70,8 +71,9 @@ function fetchTable(sport,category,calendar){
             if( $(this).children().eq(0).text() == "" ){
                 $(this).children().eq(0).remove();
             }
-            $(this).children().eq(0).remove();
-            $(this).children().eq(6).remove();
+            $(this).children().eq(0).remove(); // 'G.' column
+            $(this).children().eq(6).remove(); // 'omologazione' column
+            $(this).children().eq(6).remove(); // ics column
             //Cheerio, seppur simile a JQuery, non supporta la proprietà outerHTML, quindi non posso fare $(this).prop('outerHTML')
             //"If you want to return the outerHTML you can use $.html(selector)", preso dalla documentazione di Cheerio     
             calendar_rows += $.html( $(element) );
@@ -307,12 +309,11 @@ app.get('/', (req, res) =>{
     });
 });
 
-//U12
-require('./routes/u12_routes.js')(app,calendari_inv);
-//U14
-require('./routes/u14_routes.js')(app,calendari_inv);
-//U16
-require('./routes/u18_routes.js')(app,calendari_inv);
+
+//U13
+require('./routes/u13_routes.js')(app,calendari_inv);
+//U20
+require('./routes/u20_routes.js')(app,calendari_inv);
 //LIBERA FEMMINILE
 require('./routes/libera_f_routes.js')(app,calendari_inv);
 //LIBERA MISTA

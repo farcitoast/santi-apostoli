@@ -29,8 +29,8 @@ module.exports = function(app,calendari_inv,calendari_prim)
         });
     });
     app.get('/inv/libera-mista/va15', (req, res) =>{
-        const calendar_rows = fs.readFileSync('cache/table-'+calendari_inv.va20[1]+'-CALENDAR.html');
-        const rank_rows = fs.readFileSync('cache/table-'+calendari_inv.va20[1]+'-RANKING.html');
+        const calendar_rows = fs.readFileSync('cache/table-'+calendari_inv.va15[1]+'-CALENDAR.html');
+        const rank_rows = fs.readFileSync('cache/table-'+calendari_inv.va15[1]+'-RANKING.html');
         
         res.render('table',{
             va15: true,
