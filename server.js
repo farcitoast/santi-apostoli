@@ -11,6 +11,7 @@ const port = 3000;
 const app = express();
 app.use(device.capture());
 
+const URL = 'https://santi-apostoli.onrender.com/'
 //Codici calendari e categorie
 const categorie = {
     u12: 31,
@@ -19,21 +20,15 @@ const categorie = {
     libera_mista: 42
 }
 const calendari_inv = {
-    va01: [categorie.u12,3239],
-    va06: [categorie.u14,3242],
-    va07: [categorie.u14,3235],
-    va11: [categorie.u18,3232],
-    va12: [categorie.u18,3243],
-    va13: [categorie.u18,3247],
-    va18: [categorie.libera_mista,3228],
-    va19: [categorie.libera_mista,3229],
-    va20: [categorie.libera_mista,3230]
+    va13: [categorie.libera_mista,4529],
+    va14: [categorie.libera_mista,4531],
+    va15: [categorie.libera_mista,4533]
 };  
-const calendari_prim = {
-    va17: [categorie.libera_mista,3402],
-    va18: [categorie.libera_mista,3403],
-    va19: [categorie.libera_mista,3404],
-}; 
+// const calendari_prim = {
+//     va17: [categorie.libera_mista,3402],
+//     va18: [categorie.libera_mista,3403],
+//     va19: [categorie.libera_mista,3404],
+// }; 
 /*
 const calendari_prim = {
     va01: [categorie.u12,2930],
@@ -141,55 +136,55 @@ function updateTables(){
 
     
     /* CAMPIONATO INVERNALE */
-    /*
     let i=0;
     for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
         setTimeout(()=>{
             fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
-            switch(cal){
-                case "va01":
-                    extractEvents(`https://radiant-dusk-63944.herokuapp.com/inv/u12/${cal}`,cal);
-                    break;
-                case "va06":
-                    extractEvents(`https://radiant-dusk-63944.herokuapp.com/inv/u14/${cal}`,cal);
-                    break;
-                case "va11":
-                    extractEvents(`https://radiant-dusk-63944.herokuapp.com/inv/u18/${cal}`,cal);
-                    break;
-                case "va18":
-                    extractEvents(`https://radiant-dusk-63944.herokuapp.com/inv/libera-mista/${cal}`,cal);
-                    break;
-            }
 
-        }, (interval+i*interval)*1000);
-        i++;
-    }*/
-    
-    /* CAMPIONATO PRIMAVERILE */
-    let i=0;
-    for (let cal in calendari_prim){ //need let variable because it's block-level scoped      
-        setTimeout(()=>{
-            fetchTable('3',calendari_prim[cal][0],calendari_prim[cal][1]);
             switch(cal){
-                /*
-                case "va01":
-                    extractEvents(`https://radiant-dusk-63944.herokuapp.com/prim/u12/${cal}`,cal);
-                    break;
-                case "va06":
-                    extractEvents(`https://radiant-dusk-63944.herokuapp.com/prim/u14/${cal}`,cal);
-                    break;
-                case "va11":
-                    extractEvents(`https://radiant-dusk-63944.herokuapp.com/prim/u18/${cal}`,cal);
-                    break;
-                */
-                case "va17":
-                    extractEvents(`https://radiant-dusk-63944.herokuapp.com/prim/libera-mista/${cal}`,cal);
+                // case "va01":
+                //     extractEvents(`${URL}/inv/u12/${cal}`,cal);
+                //     break;
+                // case "va06":
+                //     extractEvents(`${URL}/inv/u14/${cal}`,cal);
+                //     break;
+                // case "va11":
+                //     extractEvents(`${URL}/inv/u18/${cal}`,cal);
+                //     break;
+                case "va15":
+                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
                     break;
             }
 
         }, (interval+i*interval)*1000);
         i++;
     }
+    
+    /* CAMPIONATO PRIMAVERILE */
+    // let i=0;
+    // for (let cal in calendari_prim){ //need let variable because it's block-level scoped      
+    //     setTimeout(()=>{
+    //         fetchTable('3',calendari_prim[cal][0],calendari_prim[cal][1]);
+    //         switch(cal){
+    //             /*
+    //             case "va01":
+    //                 extractEvents(`${URL}/prim/u12/${cal}`,cal);
+    //                 break;
+    //             case "va06":
+    //                 extractEvents(`${URL}/prim/u14/${cal}`,cal);
+    //                 break;
+    //             case "va11":
+    //                 extractEvents(`${URL}/prim/u18/${cal}`,cal);
+    //                 break;
+    //             */
+    //             case "va17":
+    //                 extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
+    //                 break;
+    //         }
+
+    //     }, (interval+i*interval)*1000);
+    //     i++;
+    // }
 };
 updateTables();
 setInterval(updateTables, 3600*1000);  //update tables every hour
@@ -199,7 +194,7 @@ function extractEvents(calendarURL, girone){
     request.get(calendarURL, function(err, response, body) {     
         console.log("Creating calendar for " + calendarURL);  
 
-        var fileICS = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//radiant-dusk-63944.herokuapp.com//iCal calendar//\n";
+        var fileICS = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//santi-apostoli.com//iCal calendar//\n";
         if (!body){
             console.log("ERROR RETRIEVING CALENDAR!!!!!!!!!")
             return;
