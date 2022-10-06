@@ -1,0 +1,54 @@
+table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+}
+#rank-table {
+	font-size: 12px;
+}
+#calendar-table td, #calendar-table th {
+	white-space: normal;
+	word-wrap: break-word;
+	border: 1px solid #333;
+	padding: 10px;
+}
+#rank-table td, #rank-table th {
+	white-space: normal;
+	word-wrap: normal;
+	border: 1px solid #333;
+	padding: 10px;
+}
+#rank-table td:first-child, #rank-table th:first-child {
+	word-wrap: break-word;
+}
+#rank-table td:first-child{
+	color: #002db3;
+}
+th {
+	text-align: left;
+	font-size: 15px;
+	background-color: #0066ff;
+	border-color: #0066ff !important;
+	color: white;
+}
+
+#calendar-table td:nth-child(4){text-transform: uppercase; font-weight: bold;}
+#calendar-table td:nth-child(5){text-transform: uppercase; font-weight: bold;}
+#calendar-table tbody tr:nth-child(even){background-color: #e6f5ff;}
+#calendar-table tbody tr:nth-child(odd){background-color: #bbe4ff;}
+/*
+#rank-table td:nth-child(6), #rank-table th:nth-child(6),
+#rank-table td:nth-child(7), #rank-table th:nth-child(7),
+#rank-table td:nth-child(8), #rank-table th:nth-child(8),
+#rank-table td:nth-child(9), #rank-table th:nth-child(9)
+{display: none;}
+*/
+#rank-table td:first-child{text-transform: uppercase; font-weight: bold; font-size: 10px;}
+#rank-table td:nth-child(2){font-weight: bold;}
+#rank-table tbody tr:nth-child(even){background-color: #e6f5ff;}
+#rank-table tbody tr:nth-child(odd){background-color: #bbe4ff;}
+
+.sortable {
+    cursor: pointer;
+}

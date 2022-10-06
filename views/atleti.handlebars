@@ -1,0 +1,36 @@
+<div class="filter btn-group d-flex" role="group">
+  <button type="button" class="btn btn-secondary w-100 rounded-0">TUTTI</button>
+  <button type="button" class="btn btn-secondary w-100 rounded-0">U13</button>
+  <button type="button" class="btn btn-secondary w-100 rounded-0">U14</button>
+  <button type="button" class="btn btn-secondary w-100 rounded-0">U16</button>
+  <button type="button" class="btn btn-secondary w-100 rounded-0">LIBERA MISTA</button>
+</div>
+<div class="table-responsive-sm">	
+<table class="table mb-0 center">
+  <thead>
+    <tr>
+      <th class="align-middle">Nome</th>
+      <th class="align-middle">Cognome</th>
+      <th class="align-middle">Team</th>
+      <th class="align-middle">Data di nascita</th>
+      <th class="align-middle">Scad Certificato</th>
+      <th class="align-middle">€</th> 
+      <th class="align-middle">N° tess</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each atleti}}
+    <tr>
+      <td>{{nome}}</td>
+      <td>{{cognome}}</td>
+      <td>{{squadra}}</td>
+      <td>{{dateFormat dataNascita "DD-MM-YYYY"}}</td>
+      <td><span class="highlight">{{dateFormat scadCertificato "DD-MM-YYYY"}}</span></td>
+      <td>{{soldi}}</td>
+      <td>{{numTesseramento}}</td>
+    </tr>
+    {{else}}
+    {{/each}}
+  </tbody>
+</table>
+</div>

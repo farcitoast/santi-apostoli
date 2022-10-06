@@ -1,0 +1,52 @@
+<div class="container my-5">
+  {{#each errors}}
+    <div class="alert alert-danger">{{text}}</div>
+  {{else}}
+
+  {{/each}}
+  <div class="jumbotron my-5 py-4">
+  <h3>Registra atleta</h3></br>
+  <form action="/atleti" method="post">
+    <div class="form-row">
+      <div class="form-group col">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" name="nome" placeholder="Nome" value="{{nome}}" required>
+      </div>
+      <div class="form-group col">
+        <label for="cognome">Cognome</label>
+        <input type="text" class="form-control" name="cognome" placeholder="Cognome" value="{{cognome}}" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="dataNascita">Data di Nascita</label>
+      <input type="date" class="form-control" name="dataNascita" value="{{dataNascita}}" required>
+    </div>
+    <div class="form-group">
+      <label for="scadCertificato">Scadenza certificato medico</label>
+      <input type="date" class="form-control" name="scadCertificato" value="{{scadCertificato}}" required>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-12 col-sm">
+        <label for="squadra">Squadra</label>
+        <select class="form-control" name="squadra" required>
+          <option value="">Nessuna</option>
+          <option value="u13">U13</option>
+          <option value="u14">U14</option>
+          <option value="u16">U16</option>
+          <option value="libera">LIBERA MISTA</option>
+        </select>
+      </div>
+      <div class="form-group col">
+        <label for="numTesseramento">N° Tess.</label>
+        <input type="number" class="form-control" name="numTesseramento" placeholder="Numero tesseramento" value="{{numTesseramento}}" required>
+      </div>
+      <div class="form-group col">
+        <label for="soldi">Quota versata</label>
+        <input type="number" class="form-control" name="soldi" placeholder="€ versati" value="{{soldi}}">
+      </div>
+    </div>
+    </br>
+    <button type="submit" class="btn btn-primary">Aggiungi</button>
+  </form>
+</div>
+</div>

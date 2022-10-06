@@ -1,0 +1,23 @@
+{
+  "name": "santi-apostoli-new",
+  "version": "1.0.0",
+  "description": "Santi Apostoli website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Davide Ferre'",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "convertapi": "^1.2.0",
+    "express": "^4.16.3",
+    "express-device": "^0.4.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars-dateformat": "^1.1.1",
+    "handlebars-intl": "^1.1.2",
+    "mongoose": "^5.3.7",
+    "pdf-image": "^2.0.0",
+    "request": "^2.85.0"
+  }
+}

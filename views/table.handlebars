@@ -1,0 +1,93 @@
+{{#if va01}}
+<div class="alert alert-primary alert-dismissible fade show text-md-center rounded-0 mb-0" role="alert">
+	<h5 class="d-inline"><span class="badge badge-primary">New</span></h5>
+	<a style="color:black" href="/ics/va01.ics">&nbsp;<strong>Salva</strong> le partite dei S. Apostoli U12 nel tuo calendario!</a>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+{{/if}}
+{{#if va06}}
+<div class="alert alert-primary alert-dismissible fade show text-md-center rounded-0 mb-0" role="alert">
+	<h5 class="d-inline"><span class="badge badge-primary">New</span></h5>
+	<a style="color:black" href="/ics/va06.ics">&nbsp;<strong>Salva</strong> le partite dei S. Apostoli U14 nel tuo calendario!</a>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+{{/if}}
+{{#if va11}}
+<div class="alert alert-primary alert-dismissible fade show text-md-center rounded-0 mb-0" role="alert">
+	<h5 class="d-inline"><span class="badge badge-primary">New</span></h5>
+	<a style="color:black" href="/ics/va11.ics">&nbsp;<strong>Salva</strong> le partite dei S. Apostoli U18 nel tuo calendario!</a>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+{{/if}}
+{{#if va18}}
+<div class="alert alert-primary alert-dismissible fade show text-md-center rounded-0 mb-0" role="alert">
+	<h5 class="d-inline"><span class="badge badge-primary">New</span></h5>
+	<a style="color:black" href="/ics/va18.ics">&nbsp;<strong>Salva</strong> le partite dei S. Apostoli LIBERA MISTA nel tuo calendario!</a>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+{{/if}}
+<ul class="nav nav-tabs nav-justified" id="myTab">
+	<li class="nav-item">
+		<a class="nav-link active" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab">Calendario</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" id="rank-tab" data-toggle="tab" href="#rank" role="tab" aria-controls="profile" aria-selected="false">Classifica</a>
+	</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade show active" id="calendar">
+		<div class="table-responsive-sm">				
+		<table id="calendar-table">
+			<thead>
+			<tr>
+				<th class="center sortable" style="white-space:nowrap">N° Gara<i class="fas fa-sort" style="float:right;line-height:inherit;"></i></th>
+				<th class="center sortable">Data<i class="fas fa-sort" style="float:right;line-height:inherit;"></i></th>
+				<th class="center">Luogo</th>
+				<th class="sortable">Casa<i class="fas fa-sort" style="float:right;line-height:inherit;"></i></th>
+				<th class="sortable">Fuori<i class="fas fa-sort" style="float:right;line-height:inherit;"></i></th>
+				<th class="center">Score</th>
+			</tr>
+			</thead>
+			<tbody>
+			<!-- I use triple brackets instead of double because we want to load html, not plain text -->
+			<!-- calendar is a helper function defined in server.js in res.render(), which returns some html with the rows of the table -->
+			{{{calendar}}}
+			</tbody>	
+		</table>		
+		</div>
+	</div>
+	<div class="tab-pane fade" id="rank">
+		<div class="table-responsive-sm">				
+		<table id="rank-table">
+			<thead>
+			<tr>
+				<th class="sortable">SQUADRA<i class="fas fa-sort" style="float:right;line-height:inherit;"></i></th>
+				<th class="center">PT</th>
+				<th class="center">G</th>
+				<th class="center">V</th>
+				<th class="center">P</th>				
+				<th class="center">SV</th>
+				<th class="center">SP</th>
+				<th class="center">PF</th>
+				<th class="center">PS</th>
+				<th class="center">QS</th>
+				<th class="center">QP</th>				
+			</tr>
+			</thead>
+			<tbody>
+			<!-- I use triple brackets instead of double because we want to load html, not plain text -->
+			<!-- rank is a helper function defined in server.js in res.render(), which returns some html with the rows of the table -->
+			{{{rank}}}
+			</tbody>	
+		</table>
+		</div>
+	</div>
+</div>

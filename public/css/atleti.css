@@ -1,0 +1,27 @@
+table {
+	table-layout: auto;
+	border-collapse: collapse;
+	border-spacing: 0;
+    width: 100%;
+    font-size: 12px;
+}
+td{
+    padding: 0.5em !important;
+    border: 1px solid #333;
+}
+th {
+    padding: 0.5em !important;
+	font-size: 15px;
+	background-color: #0066ff;
+	border-color: #0066ff !important;
+	color: white;
+}
+
+.sortable {
+    cursor: pointer;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
