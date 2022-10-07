@@ -22,9 +22,9 @@ table {
 #rank-table td:first-child, #rank-table th:first-child {
 	word-wrap: break-word;
 }
-#rank-table td:first-child{
+/* #rank-table td:first-child{
 	color: #002db3;
-}
+} */
 th {
 	text-align: left;
 	font-size: 15px;
