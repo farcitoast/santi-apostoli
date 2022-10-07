@@ -10,7 +10,7 @@ table {
 #calendar-table td, #calendar-table th {
 	white-space: normal;
 	word-wrap: break-word;
-	border: 1px solid #333;
+	border: 0.5px solid #333;
 	padding: 10px;
 }
 #rank-table td, #rank-table th {
