@@ -147,15 +147,12 @@ function updateTables(){
             fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
 
             switch(cal){
-                // case "va01":
-                //     extractEvents(`${URL}/inv/u12/${cal}`,cal);
-                //     break;
-                // case "va06":
-                //     extractEvents(`${URL}/inv/u14/${cal}`,cal);
-                //     break;
-                // case "va11":
-                //     extractEvents(`${URL}/inv/u18/${cal}`,cal);
-                //     break;
+                case "va02":
+                    extractEvents(`${URL}/inv/u13/${cal}`,cal);
+                    break;
+                case "va09":
+                    extractEvents(`${URL}/inv/u20/${cal}`,cal);
+                    break;
                 case "va11":
                     extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
                     break;
@@ -202,7 +199,7 @@ function extractEvents(calendarURL, girone){
     request.get(calendarURL, function(err, response, body) {     
         console.log("Creating calendar for " + calendarURL);  
 
-        var fileICS = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//santi-apostoli.com//iCal calendar//\n";
+        var fileICS = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//santi-apostoli.onrender.com//iCal calendar//\n";
         if (!body){
             console.log("ERROR RETRIEVING CALENDAR!!!!!!!!!")
             return;
