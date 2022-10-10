@@ -7,6 +7,7 @@ $(function() {
         $(this).css('cursor','pointer');  //cambio forma del puntatore sugli indirizzi	
         var str = $(this).attr('onmouseover');
         var mystr = str.substring(str.indexOf("(")+2,str.indexOf(")")-1);
+        mystr = mystr.replace(/\\/g,'');  //l'apostrofo viene scritto come \', non voglio mostrare \
         var mapsaddr = mystr.substring(mystr.indexOf(":")+2,);
         //console.log(mapsaddr);
         mapsaddr = mapsaddr.replace(/<br>/g,'');
