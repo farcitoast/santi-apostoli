@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#222A59">  <!-- turn Chrome bar dark grey -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">  <!-- iOS Safari bar color -->
     <title>Santi Apostoli</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- The slash at the start tells that is an absolute URL, so that the browser should look in the root directory of the project.
@@ -19,9 +18,10 @@
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">   
     
-    <!-- Icons for iOS that doesn't support the manifest -->
+    <!-- iOS that doesn't support the manifest -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="S. Apostoli"/> <!-- Title if added to home page iOS -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">  <!-- iOS Safari bar color -->
     <link rel="apple-touch-icon" href="/icons/icon.png">
 
     <!-- Splash screen for iOS, for more info https://appsco.pe/developer/splash-screens -->
