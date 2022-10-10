@@ -42,7 +42,7 @@
   "scope": ".",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#e60000",
+  "background_color": "#222A59",
   "theme_color": "#222A59",
   "description": "Web App per la società Santi Apostoli",
   "dir": "ltr",

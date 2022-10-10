@@ -12,7 +12,7 @@
       body {
         font-family: helvetica, arial, sans-serif;
         margin: 2em;
-        background-color: #e60000;
+        background-color: #222A59;
       }
 
       h1 {
@@ -55,7 +55,7 @@
       // Listen to changes in the network state, reload when online.
       // This handles the case when the device is completely offline.
       window.addEventListener('online', () => {
-        //window.location.reload();
+        window.location.reload();
       });
 
       // Check if the server is responding & reload the page if it is.
@@ -66,7 +66,7 @@
           const response = await fetch('.');
           // Verify we get a valid response from the server
           if (response.status >= 200 && response.status < 500) {
-            //window.location.reload();
+            window.location.reload();
             return;
           }
         } catch {
