@@ -47,10 +47,18 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+function fromCache(request) {
+  return caches.open(CACHE_NAME).then(function (cache) {
+    return cache.match(request).then(function (matching) {
+      return matching || Promise.reject('no-match');
+    });
+  });
+}
+
 self.addEventListener('fetch', (event) => {
   // We only want to call event.respondWith() if this is a navigation request
   // for an HTML page.
-  if (event.request.mode === 'navigate') {
+  if (event.request.mode === 'navigate') {  // navigate for html requests
     event.respondWith((async () => {
       try {
         // First, try to use the navigation preload response if it's supported.
@@ -72,6 +80,29 @@ self.addEventListener('fetch', (event) => {
         const cache = await caches.open(CACHE_NAME);
         const cachedResponse = await cache.match(OFFLINE_URL);
         return cachedResponse;
+      }
+    })());
+  }
+  else if (event.request.mode === 'no-cors') {  // no-cors for images in the offline page
+    event.respondWith((async () => {
+      try {
+        // First, try to use the navigation preload response if it's supported.
+        const preloadResponse = await event.preloadResponse;
+        if (preloadResponse) {
+          return preloadResponse;
+        }
+
+        // Always try the network first.
+        const networkResponse = await fetch(event.request);
+        return networkResponse;
+      } catch (error) {
+        // catch is only triggered if an exception is thrown, which is likely
+        // due to a network error.
+        // If fetch() returns a valid HTTP response with a response code in
+        // the 4xx or 5xx range, the catch() will NOT be called.
+        console.log('Fetch failed; returning asset from cache instead.', error);
+        
+        return fromCache(event.request);
       }
     })());
   }
