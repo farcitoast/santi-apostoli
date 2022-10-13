@@ -1,30 +1,66 @@
 <header>
-    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+    {{!-- For big screens --}}
+    <div id="carouselBigIndicators" class="carousel slide carousel-fade d-none d-sm-block" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselBigIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselBigIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselBigIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('/img/img-3.jpg')">
+        <div class="carousel-item active" style="background-image: url('/img/old (1).jpg')">
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('/img/img-1.jpg')">
+        <div class="carousel-item" style="background-image: url('/img/old (2).jpg')">
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('/img/img-2.jpg')">
+        <div class="carousel-item" style="background-image: url('/img/old (3).jpg')">
         </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+
+    <a class="carousel-control-prev" href="#carouselBigIndicators" role="button" data-slide="prev">
+
+    <a class="carousel-control-prev" href="#carouselBigIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carouselBigIndicators" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
     </div>
+
+    {{!-- For small screens --}}
+    <div id="carouselSmallIndicators" class="carousel slide carousel-fade d-sm-none" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselSmallIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselSmallIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselSmallIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('/img/img (1).jpg')">
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('/img/img (2).jpg')">
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('/img/img (3).jpg')">
+        </div>
+    </div>
+
+    <a class="carousel-control-prev" href="#carouselSmallIndicators" role="button" data-slide="prev">
+
+    <a class="carousel-control-prev" href="#carouselSmallIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselSmallIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+
 </header>
 
 <!-- Page Content -->
