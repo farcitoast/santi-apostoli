@@ -88,6 +88,9 @@ function fetchTable(sport,category,calendar){
                 console.log('table-'+calendar+'-CALENDAR has been saved!');
             });
         }
+        else {
+            console.log('table-'+calendar+': could not fetch table correctly...');
+        }
         //CLASSIFICA
         n_righe = 0;
         $("tr:nth-of-type(2) > td > table tr[class=pari],tr:nth-of-type(2) > td > table tr[class=dispari]").each(function(i,element){
@@ -268,7 +271,7 @@ function extractEvents(calendarURL, girone){
             // throws an error, you could also catch it here
             if (err) throw err;
             // success case, the file was saved
-            console.log('Saved!');
+            console.log(' .ics calendar saved!');
         });
     });
 }
