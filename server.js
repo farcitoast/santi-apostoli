@@ -22,6 +22,7 @@ const categorie = {
 const calendari_inv = {
     va02: [categorie.u13,4508],
     va09: [categorie.u20,4523],
+    va10: [categorie.u20,4524],
     va11: [categorie.libera_f,4525],
     va12: [categorie.libera_f,4526],
     va13: [categorie.libera_mista,4529],
