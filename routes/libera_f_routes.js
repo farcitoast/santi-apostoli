@@ -45,4 +45,34 @@ module.exports = function(app,calendari_inv,calendari_prim)
             }
         });
     });
+
+    app.get('/prim/libera-f/va14', (req, res) =>{
+        const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va14[1]+'-CALENDAR.html');
+        const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va14[1]+'-RANKING.html');
+        
+        res.render('table',{
+            active_libera_f: true,
+            va14: true,
+            table: true,
+            helpers: {
+                calendar: function () { return calendar_rows; },
+                rank: function() { return rank_rows }
+            }
+        });
+    });
+
+    app.get('/prim/libera-f/va15', (req, res) =>{
+        const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va15[1]+'-CALENDAR.html');
+        const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va15[1]+'-RANKING.html');
+        
+        res.render('table',{
+            active_libera_f: true,
+            va15: true,
+            table: true,
+            helpers: {
+                calendar: function () { return calendar_rows; },
+                rank: function() { return rank_rows }
+            }
+        });
+    });
 }

@@ -31,10 +31,15 @@ const calendari_inv = {
 };  
 
 const calendari_prim = {
+    va03: [categorie.u13,4889],
     va04: [categorie.u13,4891],
     va12: [categorie.u20,4904],
     va13: [categorie.libera_f,4906],
-    va17: [categorie.libera_mista,4912]
+    va14: [categorie.libera_f,4908],
+    va15: [categorie.libera_f,4909],
+    va16: [categorie.libera_mista,4911],
+    va17: [categorie.libera_mista,4912],
+    va18: [categorie.libera_mista,4914]
 };  
 
 //Function to download and cache tables

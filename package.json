@@ -4,6 +4,7 @@
   "description": "Santi Apostoli website",
   "main": "server.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Davide Ferre'",
@@ -19,5 +20,8 @@
     "mongoose": "^5.3.7",
     "pdf-image": "^2.0.0",
     "request": "^2.85.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
