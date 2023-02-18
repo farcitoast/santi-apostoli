@@ -145,29 +145,29 @@ function updateTables(){
 
     
     /* CAMPIONATO INVERNALE */
-    let i=0;
-    for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
-        setTimeout(()=>{
-            fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
+    // let i=0;
+    // for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
+    //     setTimeout(()=>{
+    //         fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
 
-            switch(cal){
-                case "va02":
-                    extractEvents(`${URL}/inv/u13/${cal}`,cal);
-                    break;
-                case "va09":
-                    extractEvents(`${URL}/inv/u20/${cal}`,cal);
-                    break;
-                case "va11":
-                    extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
-                    break;
-                case "va15":
-                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
-                    break;
-            }
+    //         switch(cal){
+    //             case "va02":
+    //                 extractEvents(`${URL}/inv/u13/${cal}`,cal);
+    //                 break;
+    //             case "va09":
+    //                 extractEvents(`${URL}/inv/u20/${cal}`,cal);
+    //                 break;
+    //             case "va11":
+    //                 extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
+    //                 break;
+    //             case "va15":
+    //                 extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
+    //                 break;
+    //         }
 
-        }, (interval+i*interval)*1000);
-        i++;
-    }
+    //     }, (interval+i*interval)*1000);
+    //     i++;
+    // }
     
     /* CAMPIONATO PRIMAVERILE */
     // let i=0;
