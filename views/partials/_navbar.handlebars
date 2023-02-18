@@ -18,8 +18,16 @@
         <li class="nav-item">
           <a class="nav-link {{#if active_home}}active{{/if}}" href="/">Home</a>
         </li>           
-        <li class="nav-item">
-          <a class="nav-link {{#if active_u13}}active{{/if}}" href="/inv/u13/va02">Under 13</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle {{#if active_u13}}active{{/if}}" data-toggle="dropdown" href="#">Under 13</a>
+          <div class="dropdown-menu mb-3">
+            <h6 class="dropdown-header">Invernale</h6>
+            <a class="dropdown-item" href="/inv/u13/va02"><strong>VA02</strong></a>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Primaverile</h6>
+            <a class="dropdown-item" href="/prim/u13/va04"><strong>VA04</strong></a>
+          </div>
         </li>
 
         <li class="nav-item dropdown">
@@ -28,6 +36,9 @@
             <h6 class="dropdown-header">Invernale</h6>
             <a class="dropdown-item" href="/inv/u20/va09"><strong>VA09</strong></a>
             <a class="dropdown-item" href="/inv/u20/va10">VA10</a>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Primaverile</h6>
+            <a class="dropdown-item" href="/prim/u20/va12"><strong>VA12</strong></a>
           </div>
         </li>
         {{!-- <li class="nav-item dropdown">
@@ -53,10 +64,10 @@
             <h6 class="dropdown-header">Invernale</h6>
             <a class="dropdown-item" href="/inv/libera-f/va11"><strong>VA11</strong></a>
             <a class="dropdown-item" href="/inv/libera-f/va12">VA12</a>
-            {{!-- <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">Primaverile</h6>
-            <a class="dropdown-item" href="/prim/libera-f/va17"><strong>VA17</strong></a>
-            <a class="dropdown-item" href="/prim/libera-f/va18">VA18</a>
+            <a class="dropdown-item" href="/prim/libera-f/va13"><strong>VA13</strong></a>
+            {{!-- <a class="dropdown-item" href="/prim/libera-f/va18">VA18</a>
             <a class="dropdown-item" href="/prim/libera-f/va19">VA19</a> --}}
           </div>
         </li>
@@ -67,10 +78,10 @@
             <a class="dropdown-item" href="/inv/libera-mista/va13">VA13</a>
             <a class="dropdown-item" href="/inv/libera-mista/va14">VA14</a>
             <a class="dropdown-item" href="/inv/libera-mista/va15"><strong>VA15</strong></a>
-            {{!-- <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">Primaverile</h6>
             <a class="dropdown-item" href="/prim/libera-mista/va17"><strong>VA17</strong></a>
-            <a class="dropdown-item" href="/prim/libera-mista/va18">VA18</a>
+            {{!-- <a class="dropdown-item" href="/prim/libera-mista/va18">VA18</a>
             <a class="dropdown-item" href="/prim/libera-mista/va19">VA19</a> --}}
           </div>
         </li>

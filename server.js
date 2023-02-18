@@ -29,29 +29,14 @@ const calendari_inv = {
     va14: [categorie.libera_mista,4531],
     va15: [categorie.libera_mista,4533]
 };  
-// const calendari_prim = {
-//     va17: [categorie.libera_mista,3402],
-//     va18: [categorie.libera_mista,3403],
-//     va19: [categorie.libera_mista,3404],
-// }; 
-/*
+
 const calendari_prim = {
-    va01: [categorie.u12,2930],
-    va02: [categorie.u12,2931],
-    va03: [categorie.u13,2932],
-    va04: [categorie.u13,2933],
-    va05: [categorie.u13,2934],
-    va06: [categorie.u14,2936],
-    va07: [categorie.u14,2937],
-    va08: [categorie.u16,2938],
-    va09: [categorie.u16,2939],
-    va10: [categorie.u16,2940],
-    va11: [categorie.u16,2941],
-    va19: [categorie.libera_mista,2949],
-    va20: [categorie.libera_mista,2950], 
-    va21: [categorie.libera_mista,2951]
+    va04: [categorie.u13,4891],
+    va12: [categorie.u20,4904],
+    va13: [categorie.libera_f,4906],
+    va17: [categorie.libera_mista,4912]
 };  
-*/
+
 //Function to download and cache tables
 function fetchTable(sport,category,calendar){
     request.post(new RequestOptions(sport,category,calendar), function(err, response, body) {     
@@ -170,30 +155,28 @@ function updateTables(){
     // }
     
     /* CAMPIONATO PRIMAVERILE */
-    // let i=0;
-    // for (let cal in calendari_prim){ //need let variable because it's block-level scoped      
-    //     setTimeout(()=>{
-    //         fetchTable('3',calendari_prim[cal][0],calendari_prim[cal][1]);
-    //         switch(cal){
-    //             /*
-    //             case "va01":
-    //                 extractEvents(`${URL}/prim/u12/${cal}`,cal);
-    //                 break;
-    //             case "va06":
-    //                 extractEvents(`${URL}/prim/u14/${cal}`,cal);
-    //                 break;
-    //             case "va11":
-    //                 extractEvents(`${URL}/prim/u18/${cal}`,cal);
-    //                 break;
-    //             */
-    //             case "va17":
-    //                 extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
-    //                 break;
-    //         }
+    let i=0;
+    for (let cal in calendari_prim){ //need let variable because it's block-level scoped      
+        setTimeout(()=>{
+            fetchTable('3',calendari_prim[cal][0],calendari_prim[cal][1]);
+            switch(cal){
+                case "va04":
+                    extractEvents(`${URL}/prim/u12/${cal}`,cal);
+                    break;
+                case "va12":
+                    extractEvents(`${URL}/prim/u14/${cal}`,cal);
+                    break;
+                case "va13":
+                    extractEvents(`${URL}/prim/u18/${cal}`,cal);
+                    break;
+                case "va17":
+                    extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
+                    break;
+            }
 
-    //     }, (interval+i*interval)*1000);
-    //     i++;
-    // }
+        }, (interval+i*interval)*1000);
+        i++;
+    }
 };
 updateTables();
 setInterval(updateTables, 3600*1000);  //update tables every hour
@@ -312,13 +295,13 @@ app.get('/', (req, res) =>{
 
 
 //U13
-require('./routes/u13_routes.js')(app,calendari_inv);
+require('./routes/u13_routes.js')(app,calendari_inv,calendari_prim);
 //U20
-require('./routes/u20_routes.js')(app,calendari_inv);
+require('./routes/u20_routes.js')(app,calendari_inv,calendari_prim);
 //LIBERA FEMMINILE
-require('./routes/libera_f_routes.js')(app,calendari_inv);
+require('./routes/libera_f_routes.js')(app,calendari_inv,calendari_prim);
 //LIBERA MISTA
-require('./routes/libera_mista_routes.js')(app,calendari_inv);
+require('./routes/libera_mista_routes.js')(app,calendari_inv,calendari_prim);
 
 //404
 app.use( (req,res) =>{

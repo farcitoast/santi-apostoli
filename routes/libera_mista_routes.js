@@ -42,19 +42,22 @@ module.exports = function(app,calendari_inv,calendari_prim)
             }
         });
     });
-    // app.get('/prim/libera-mista/va17', (req, res) =>{
-    //     const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va17[1]+'-CALENDAR.html');
-    //     const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va17[1]+'-RANKING.html');
+
+    /** PRIMAVERILE **/
+    app.get('/prim/libera-mista/va17', (req, res) =>{
+        const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va17[1]+'-CALENDAR.html');
+        const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va17[1]+'-RANKING.html');
         
-    //     res.render('table',{
-    //         active_libera: true,
-    //         table: true,
-    //         helpers: {
-    //             calendar: function () { return calendar_rows; },
-    //             rank: function() { return rank_rows }
-    //         }
-    //     });
-    // });
+        res.render('table',{
+            va17: true,
+            active_libera: true,
+            table: true,
+            helpers: {
+                calendar: function () { return calendar_rows; },
+                rank: function() { return rank_rows }
+            }
+        });
+    });
     // app.get('/prim/libera-mista/va18', (req, res) =>{
     //     const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va18[1]+'-CALENDAR.html');
     //     const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va18[1]+'-RANKING.html');

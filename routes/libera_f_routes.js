@@ -30,4 +30,19 @@ module.exports = function(app,calendari_inv,calendari_prim)
         });
     });
 
+    /** PRIMAVERILE */
+    app.get('/prim/libera-f/va13', (req, res) =>{
+        const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va13[1]+'-CALENDAR.html');
+        const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va13[1]+'-RANKING.html');
+        
+        res.render('table',{
+            active_libera_f: true,
+            va13: true,
+            table: true,
+            helpers: {
+                calendar: function () { return calendar_rows; },
+                rank: function() { return rank_rows }
+            }
+        });
+    });
 }
