@@ -294,7 +294,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) =>{
     res.render('home',{
-        active_home: true
+        active_home: true,
+        home:true
     });
 });
 
