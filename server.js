@@ -160,31 +160,31 @@ function updateTables(){
     // }
     
     /* CAMPIONATO PRIMAVERILE */
-    let i=0;
-    for (let cal in calendari_prim){ //need let variable because it's block-level scoped      
-        setTimeout(()=>{
-            fetchTable('3',calendari_prim[cal][0],calendari_prim[cal][1]);
-            switch(cal){
-                case "va04":
-                    extractEvents(`${URL}/prim/u12/${cal}`,cal);
-                    break;
-                case "va12":
-                    extractEvents(`${URL}/prim/u14/${cal}`,cal);
-                    break;
-                case "va13":
-                    extractEvents(`${URL}/prim/u18/${cal}`,cal);
-                    break;
-                case "va17":
-                    extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
-                    break;
-            }
+    // let i=0;
+    // for (let cal in calendari_prim){ //need let variable because it's block-level scoped      
+    //     setTimeout(()=>{
+    //         fetchTable('3',calendari_prim[cal][0],calendari_prim[cal][1]);
+    //         switch(cal){
+    //             case "va04":
+    //                 extractEvents(`${URL}/prim/u12/${cal}`,cal);
+    //                 break;
+    //             case "va12":
+    //                 extractEvents(`${URL}/prim/u14/${cal}`,cal);
+    //                 break;
+    //             case "va13":
+    //                 extractEvents(`${URL}/prim/u18/${cal}`,cal);
+    //                 break;
+    //             case "va17":
+    //                 extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
+    //                 break;
+    //         }
 
-        }, (interval+i*interval)*1000);
-        i++;
-    }
+    //     }, (interval+i*interval)*1000);
+    //     i++;
+    // }
 };
-updateTables();
-setInterval(updateTables, 3600*1000);  //update tables every hour
+// updateTables();
+// setInterval(updateTables, 3600*1000);  //update tables every hour
 
 //Fetch, build and create .ics calendar files
 function extractEvents(calendarURL, girone){
