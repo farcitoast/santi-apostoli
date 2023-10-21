@@ -299,15 +299,9 @@ app.get('/', (req, res) =>{
     });
 });
 
-
-//U13
-require('./routes/u13_routes.js')(app,calendari_inv,calendari_prim);
-//U20
-require('./routes/u20_routes.js')(app,calendari_inv,calendari_prim);
-//LIBERA FEMMINILE
-require('./routes/libera_f_routes.js')(app,calendari_inv,calendari_prim);
-//LIBERA MISTA
-require('./routes/libera_mista_routes.js')(app,calendari_inv,calendari_prim);
+//CAMPIONATO 2022
+router_2022 = require('./routes/2022/routes_2022.js');
+app.use('/2022', router_2022);
 
 //404
 app.use( (req,res) =>{
