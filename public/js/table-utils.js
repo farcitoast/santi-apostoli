@@ -52,7 +52,8 @@ $(function() {
 
     //HIGHLIGHT SANTI APOSTOLI
     $('#calendar-table td').each(function(i) {
-        if($(this).text().trim().toUpperCase().includes('SANTI APOSTOLI')){ 
+        team_name = $(this).text().trim().toUpperCase();
+        if(team_name.includes('SANTI APOSTOLI') || team_name.includes('SANTI APOSTOLLI')){ 
             $(this).html(`<span style="background-color:#ffffb3">${$(this).text()}</span>`);
         }
     });

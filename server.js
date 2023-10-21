@@ -14,33 +14,24 @@ app.use(device.capture());
 const URL = 'https://santi-apostoli.onrender.com'
 //Codici calendari e categorie
 const categorie = {
-    u13: 30,
-    u20: 38,
+    u14: 32,
     libera_f: 40,
     libera_mista: 42
 }
 const calendari_inv = {
-    va02: [categorie.u13,4508],
-    va09: [categorie.u20,4523],
-    va10: [categorie.u20,4524],
-    va11: [categorie.libera_f,4525],
-    va12: [categorie.libera_f,4526],
-    va13: [categorie.libera_mista,4529],
-    va14: [categorie.libera_mista,4531],
-    va15: [categorie.libera_mista,4533]
-};  
+    va05: [categorie.u14,5722],
+    va06: [categorie.u14,5724],
+    va12: [categorie.libera_f,5735],
+    va13: [categorie.libera_f,5736],
+    va14: [categorie.libera_f,5737],
+    va15: [categorie.libera_f,5738],
+    va16: [categorie.libera_mista,5741],
+    va17: [categorie.libera_mista,5742],
+    va18: [categorie.libera_mista,5746]
+}; 
 
-const calendari_prim = {
-    va03: [categorie.u13,4889],
-    va04: [categorie.u13,4891],
-    va12: [categorie.u20,4904],
-    va13: [categorie.libera_f,4906],
-    va14: [categorie.libera_f,4908],
-    va15: [categorie.libera_f,4909],
-    va16: [categorie.libera_mista,4911],
-    va17: [categorie.libera_mista,4912],
-    va18: [categorie.libera_mista,4914]
-};  
+// const calendari_prim = {
+// };  
 
 //Function to download and cache tables
 function fetchTable(sport,category,calendar){
@@ -135,29 +126,30 @@ function updateTables(){
 
     
     /* CAMPIONATO INVERNALE */
-    // let i=0;
-    // for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
-    //     setTimeout(()=>{
-    //         fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
+    let i=0;
+    for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
+        setTimeout(()=>{
+            console.log("Updating calendar" + calendari_inv[cal][0] + calendari_inv[cal][1]);
+            fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
 
-    //         switch(cal){
-    //             case "va02":
-    //                 extractEvents(`${URL}/inv/u13/${cal}`,cal);
-    //                 break;
-    //             case "va09":
-    //                 extractEvents(`${URL}/inv/u20/${cal}`,cal);
-    //                 break;
-    //             case "va11":
-    //                 extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
-    //                 break;
-    //             case "va15":
-    //                 extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
-    //                 break;
-    //         }
+            switch(cal){
+                case "va05":
+                    extractEvents(`${URL}/inv/u14/${cal}`,cal);
+                    break;
+                case "va12":
+                    extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
+                    break;
+                case "va13":
+                    extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
+                    break;
+                case "va18":
+                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
+                    break;
+            }
 
-    //     }, (interval+i*interval)*1000);
-    //     i++;
-    // }
+        }, (interval+i*interval)*1000);
+        i++;
+    }
     
     /* CAMPIONATO PRIMAVERILE */
     // let i=0;
@@ -183,8 +175,8 @@ function updateTables(){
     //     i++;
     // }
 };
-// updateTables();
-// setInterval(updateTables, 3600*1000);  //update tables every hour
+updateTables();
+setInterval(updateTables, 3600*1000);  //update tables every hour
 
 //Fetch, build and create .ics calendar files
 function extractEvents(calendarURL, girone){
@@ -298,6 +290,11 @@ app.get('/', (req, res) =>{
         home:true
     });
 });
+
+
+//CAMPIONATO 2023
+router_2023 = require('./routes/routes_2023.js');
+app.use(router_2023);
 
 //CAMPIONATO 2022
 router_2022 = require('./routes/2022/routes_2022.js');
