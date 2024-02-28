@@ -18,20 +18,23 @@ const categorie = {
     libera_f: 40,
     libera_mista: 42
 }
-const calendari_inv = {
-    va05: [categorie.u14,5722],
-    va06: [categorie.u14,5724],
-    va12: [categorie.libera_f,5735],
-    va13: [categorie.libera_f,5736],
-    va14: [categorie.libera_f,5737],
-    va15: [categorie.libera_f,5738],
-    va16: [categorie.libera_mista,5741],
-    va17: [categorie.libera_mista,5742],
-    va18: [categorie.libera_mista,5746]
-}; 
+// const calendari_inv = {
+//     va05: [categorie.u14,5722],
+//     va06: [categorie.u14,5724],
+//     va12: [categorie.libera_f,5735],
+//     va13: [categorie.libera_f,5736],
+//     va14: [categorie.libera_f,5737],
+//     va15: [categorie.libera_f,5738],
+//     va16: [categorie.libera_mista,5741],
+//     va17: [categorie.libera_mista,5742],
+//     va18: [categorie.libera_mista,5746]
+// }; 
 
-// const calendari_prim = {
-// };  
+const calendari_prim = {
+    va08: [categorie.u14,6777],
+    va18: [categorie.libera_f,6794],
+    va20: [categorie.libera_mista,6799]
+};  
 
 //Function to download and cache tables
 function fetchTable(sport,category,calendar){
@@ -126,54 +129,51 @@ function updateTables(){
 
     
     /* CAMPIONATO INVERNALE */
-    let i=0;
-    for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
-        setTimeout(()=>{
-            console.log("Updating calendar" + calendari_inv[cal][0] + calendari_inv[cal][1]);
-            fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
-
-            switch(cal){
-                case "va05":
-                    extractEvents(`${URL}/inv/u14/${cal}`,cal);
-                    break;
-                case "va12":
-                    extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
-                    break;
-                case "va13":
-                    extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
-                    break;
-                case "va18":
-                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
-                    break;
-            }
-
-        }, (interval+i*interval)*1000);
-        i++;
-    }
-    
-    /* CAMPIONATO PRIMAVERILE */
     // let i=0;
-    // for (let cal in calendari_prim){ //need let variable because it's block-level scoped      
+    // for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
     //     setTimeout(()=>{
-    //         fetchTable('3',calendari_prim[cal][0],calendari_prim[cal][1]);
+    //         console.log("Updating calendar" + calendari_inv[cal][0] + calendari_inv[cal][1]);
+    //         fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
+
     //         switch(cal){
-    //             case "va04":
-    //                 extractEvents(`${URL}/prim/u12/${cal}`,cal);
+    //             case "va05":
+    //                 extractEvents(`${URL}/inv/u14/${cal}`,cal);
     //                 break;
     //             case "va12":
-    //                 extractEvents(`${URL}/prim/u14/${cal}`,cal);
+    //                 extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
     //                 break;
     //             case "va13":
-    //                 extractEvents(`${URL}/prim/u18/${cal}`,cal);
+    //                 extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
     //                 break;
-    //             case "va17":
-    //                 extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
+    //             case "va18":
+    //                 extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
     //                 break;
     //         }
 
     //     }, (interval+i*interval)*1000);
     //     i++;
     // }
+    
+    /* CAMPIONATO PRIMAVERILE */
+    let i=0;
+    for (let cal in calendari_prim){ //need let variable because it's block-level scoped      
+        setTimeout(()=>{
+            fetchTable('3',calendari_prim[cal][0],calendari_prim[cal][1]);
+            switch(cal){
+                case "va08":
+                    extractEvents(`${URL}/prim/u14/${cal}`,cal);
+                    break;
+                case "va18":
+                    extractEvents(`${URL}/prim/libera-f/${cal}`,cal);
+                    break;
+                case "va20":
+                    extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
+                    break;
+            }
+
+        }, (interval+i*interval)*1000);
+        i++;
+    }
 };
 updateTables();
 setInterval(updateTables, 3600*1000);  //update tables every hour
