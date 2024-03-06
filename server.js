@@ -33,7 +33,9 @@ const categorie = {
 const calendari_prim = {
     va08: [categorie.u14,6777],
     va18: [categorie.libera_f,6794],
-    va20: [categorie.libera_mista,6799]
+    va19: [categorie.libera_mista,6796],
+    va20: [categorie.libera_mista,6799],
+    va21: [categorie.libera_mista,6801]
 };  
 
 //Function to download and cache tables
@@ -166,7 +168,13 @@ function updateTables(){
                 case "va18":
                     extractEvents(`${URL}/prim/libera-f/${cal}`,cal);
                     break;
+                case "va19":
+                    extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
+                    break;
                 case "va20":
+                    extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
+                    break;
+                case "va21":
                     extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
                     break;
             }
@@ -216,8 +224,8 @@ function extractEvents(calendarURL, girone){
                             break;
                         case 1: //DATE
                             var anno = "20"+$(this).text().substr(10,2);
-                            var mese = $(this).text().substr(07,2);
-                            var giorno = $(this).text().substr(04,2);
+                            var mese = $(this).text().substr(7,2);
+                            var giorno = $(this).text().substr(4,2);
                             var ora = $(this).text().substr(13,2);
                             var minuti = $(this).text().substr(16,2);
                             fileICS += `DTSTART:${anno}${mese}${giorno}T${ora}${minuti}00\n`;                        
