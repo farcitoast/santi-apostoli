@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const archiver = require('archiver');
 const express = require('express');
 const exphbs  = require('express-handlebars');
 const cheerio = require('cheerio');
@@ -321,6 +322,30 @@ app.use('/2023', router_2023);
 //CAMPIONATO 2022
 router_2022 = require('./routes/2022/routes_2022.js');
 app.use('/2022', router_2022);
+
+//END-POINT TO DOWNLOAD ALL CACHED RESULTS IN A SINGLE ZIP
+app.get('/download-cache', (req, res) => {
+  console.log('downloading cache...');
+  const output = fs.createWriteStream('tmp/results.zip');
+  const archive = archiver('zip', { zlib: { level: 9 } });
+
+  output.on('close', () => {
+    res.download('tmp/results.zip', 'results.zip', (err) => {
+      if (err) {
+        console.error('Error sending zip file:', err);
+      }
+    });
+  });
+
+  archive.on('error', (err) => {
+    throw err;
+  });
+
+  archive.pipe(output);
+  archive.directory(path.join(__dirname, 'cache'), false);
+  console.log(path.join(__dirname, 'cache'))
+  archive.finalize();
+});
 
 //404
 app.use( (req,res) =>{
