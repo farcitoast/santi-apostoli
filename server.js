@@ -15,17 +15,19 @@ app.use(device.capture());
 const URL = 'https://santi-apostoli.onrender.com'
 //Codici calendari e categorie
 const categorie = {
-    u14: 32,
+    u13: 30,
+    u16: 34,
     libera_f: 40,
     libera_mista: 42
 }
 const calendari_inv = {
-    // va05: [categorie.u14,5722],
-    // va06: [categorie.u14,5724],
+    va02: [categorie.u13,8120],
+    va03: [categorie.u13,8123],
+    va06: [categorie.u16,7787],
+    va07: [categorie.u16,7788],
+    va08: [categorie.u16,7791],
     va12: [categorie.libera_f,7796],
     va13: [categorie.libera_f,7797],
-    // va14: [categorie.libera_f,5737],
-    // va15: [categorie.libera_f,5738],
     va14: [categorie.libera_mista,7800],
     va15: [categorie.libera_mista,7802],
     va16: [categorie.libera_mista,7803],
@@ -139,24 +141,19 @@ function updateTables(){
             console.log("Updating calendar " + calendari_inv[cal][0] + " " + calendari_inv[cal][1]);
             fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
 
+            // extract .ics for santi apostoli
             switch(cal){
-                // case "va05":
-                //     extractEvents(`${URL}/inv/u14/${cal}`,cal);
-                //     break;
+                case "va02":
+                    extractEvents(`${URL}/inv/u13/${cal}`,cal);
+                    break;
+                case "va07":
+                    extractEvents(`${URL}/inv/u16/${cal}`,cal);
+                    break;
                 case "va12":
                     extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
                     break;
                 case "va13":
                     extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
-                    break;
-                case "va14":
-                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
-                    break;
-                case "va15":
-                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
-                    break;
-                case "va16":
-                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
                     break;
                 case "va17":
                     extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
