@@ -15,7 +15,9 @@ const calendari_inv = {
     va13: [categorie.libera_f,7797],
     // va14: [categorie.libera_f,5737],
     // va15: [categorie.libera_f,5738],
-    // va16: [categorie.libera_mista,5744],
+    va14: [categorie.libera_mista,7800],
+    va15: [categorie.libera_mista,7802],
+    va16: [categorie.libera_mista,7803],
     va17: [categorie.libera_mista,7806]
 }; 
 
@@ -48,12 +50,14 @@ router.get('/inv/libera-f/va13', (req, res) =>{
         }
     });
 });
-router.get('/inv/libera-f/va14', (req, res) =>{
+
+
+router.get('/inv/libera-mista/va14', (req, res) =>{
     const calendar_rows = fs.readFileSync('cache/table-'+calendari_inv.va14[1]+'-CALENDAR.html');
     const rank_rows = fs.readFileSync('cache/table-'+calendari_inv.va14[1]+'-RANKING.html');
     
     res.render('table',{
-        active_libera_f: true,
+        active_libera: true,
         table: true,
         helpers: {
             calendar: function () { return calendar_rows; },
@@ -61,12 +65,12 @@ router.get('/inv/libera-f/va14', (req, res) =>{
         }
     });
 });
-router.get('/inv/libera-f/va15', (req, res) =>{
+router.get('/inv/libera-mista/va15', (req, res) =>{
     const calendar_rows = fs.readFileSync('cache/table-'+calendari_inv.va15[1]+'-CALENDAR.html');
     const rank_rows = fs.readFileSync('cache/table-'+calendari_inv.va15[1]+'-RANKING.html');
     
     res.render('table',{
-        active_libera_f: true,
+        active_libera: true,
         table: true,
         helpers: {
             calendar: function () { return calendar_rows; },
@@ -74,7 +78,6 @@ router.get('/inv/libera-f/va15', (req, res) =>{
         }
     });
 });
-
 router.get('/inv/libera-mista/va16', (req, res) =>{
     const calendar_rows = fs.readFileSync('cache/table-'+calendari_inv.va16[1]+'-CALENDAR.html');
     const rank_rows = fs.readFileSync('cache/table-'+calendari_inv.va16[1]+'-RANKING.html');
@@ -94,19 +97,6 @@ router.get('/inv/libera-mista/va17', (req, res) =>{
     
     res.render('table',{
         va17: true,
-        active_libera: true,
-        table: true,
-        helpers: {
-            calendar: function () { return calendar_rows; },
-            rank: function() { return rank_rows }
-        }
-    });
-});
-router.get('/inv/libera-mista/va18', (req, res) =>{
-    const calendar_rows = fs.readFileSync('cache/table-'+calendari_inv.va18[1]+'-CALENDAR.html');
-    const rank_rows = fs.readFileSync('cache/table-'+calendari_inv.va18[1]+'-RANKING.html');
-    
-    res.render('table',{
         active_libera: true,
         table: true,
         helpers: {

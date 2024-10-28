@@ -25,7 +25,9 @@ const calendari_inv = {
     va13: [categorie.libera_f,7797],
     // va14: [categorie.libera_f,5737],
     // va15: [categorie.libera_f,5738],
-    // va16: [categorie.libera_mista,5744],
+    va14: [categorie.libera_mista,7800],
+    va15: [categorie.libera_mista,7802],
+    va16: [categorie.libera_mista,7803],
     va17: [categorie.libera_mista,7806]
 }; 
 
@@ -133,7 +135,7 @@ function updateTables(){
     let i=0;
     for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
         setTimeout(()=>{
-            console.log("Updating calendar" + calendari_inv[cal][0] + calendari_inv[cal][1]);
+            console.log("Updating calendar " + calendari_inv[cal][0] + " " + calendari_inv[cal][1]);
             fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
 
             switch(cal){
@@ -145,6 +147,15 @@ function updateTables(){
                     break;
                 case "va13":
                     extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
+                    break;
+                case "va14":
+                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
+                    break;
+                case "va15":
+                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
+                    break;
+                case "va16":
+                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
                     break;
                 case "va17":
                     extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
