@@ -135,34 +135,34 @@ function updateTables(){
 
     
     /* CAMPIONATO INVERNALE */
-    let i=0;
-    for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
-        setTimeout(()=>{
-            console.log("Updating calendar " + calendari_inv[cal][0] + " " + calendari_inv[cal][1]);
-            fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
+    // let i=0;
+    // for (let cal in calendari_inv){ //need let variable because it's block-level scoped      
+    //     setTimeout(()=>{
+    //         console.log("Updating calendar " + calendari_inv[cal][0] + " " + calendari_inv[cal][1]);
+    //         fetchTable('3',calendari_inv[cal][0],calendari_inv[cal][1]);
 
-            // extract .ics for santi apostoli
-            switch(cal){
-                case "va02":
-                    extractEvents(`${URL}/inv/u13/${cal}`,cal);
-                    break;
-                case "va07":
-                    extractEvents(`${URL}/inv/u16/${cal}`,cal);
-                    break;
-                case "va12":
-                    extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
-                    break;
-                case "va13":
-                    extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
-                    break;
-                case "va17":
-                    extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
-                    break;
-            }
+    //         // extract .ics for santi apostoli
+    //         switch(cal){
+    //             case "va02":
+    //                 extractEvents(`${URL}/inv/u13/${cal}`,cal);
+    //                 break;
+    //             case "va07":
+    //                 extractEvents(`${URL}/inv/u16/${cal}`,cal);
+    //                 break;
+    //             case "va12":
+    //                 extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
+    //                 break;
+    //             case "va13":
+    //                 extractEvents(`${URL}/inv/libera-f/${cal}`,cal);
+    //                 break;
+    //             case "va17":
+    //                 extractEvents(`${URL}/inv/libera-mista/${cal}`,cal);
+    //                 break;
+    //         }
 
-        }, (interval+i*interval)*1000);
-        i++;
-    }
+    //     }, (interval+i*interval)*1000);
+    //     i++;
+    // }
     
     // /* CAMPIONATO PRIMAVERILE */
     // let i=0;
