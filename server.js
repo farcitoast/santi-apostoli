@@ -36,11 +36,19 @@ const calendari_inv = {
 
 const calendari_prim = {
     va03: [categorie.u13,8334],
+    va04: [categorie.u13,8335],
+    va05: [categorie.u13,8336],
+    va09: [categorie.u16,8347],
     va10: [categorie.u16,8349],
+    va11: [categorie.u16,8352],
+    va16: [categorie.libera_f,8362],
     va17: [categorie.libera_f,8363],
     va18: [categorie.libera_f,8366],
-    va20: [categorie.libera_mista,8372]
-};  
+    va19: [categorie.libera_mista,8369],
+    va20: [categorie.libera_mista,8372],
+    va21: [categorie.libera_mista,8375],
+    va22: [categorie.libera_mista,8376]
+}; 
 
 //Function to download and cache tables
 function fetchTable(sport,category,calendar){
@@ -167,27 +175,50 @@ function updateTables(){
     /* CAMPIONATO PRIMAVERILE */
     let i=0;
     for (let cal in calendari_prim){ //need let variable because it's block-level scoped      
-        setTimeout(()=>{
-            fetchTable('3',calendari_prim[cal][0],calendari_prim[cal][1]);
+        setTimeout(()=> {
+            fetchTable('3', calendari_prim[cal][0], calendari_prim[cal][1]);
             switch(cal){
                 case "va03":
-                    extractEvents(`${URL}/prim/u13/${cal}`,cal);
+                    extractEvents(`${URL}/prim/u13/${cal}`, cal);
+                    break;
+                case "va04":
+                    extractEvents(`${URL}/prim/u13/${cal}`, cal);
+                    break;
+                case "va05":
+                    extractEvents(`${URL}/prim/u13/${cal}`, cal);
+                    break;
+                case "va09":
+                    extractEvents(`${URL}/prim/u16/${cal}`, cal);
                     break;
                 case "va10":
-                    extractEvents(`${URL}/prim/u16/${cal}`,cal);
+                    extractEvents(`${URL}/prim/u16/${cal}`, cal);
+                    break;
+                case "va11":
+                    extractEvents(`${URL}/prim/u16/${cal}`, cal);
+                    break;
+                case "va16":
+                    extractEvents(`${URL}/prim/libera-f/${cal}`, cal);
                     break;
                 case "va17":
-                    extractEvents(`${URL}/prim/libera-f/${cal}`,cal);
+                    extractEvents(`${URL}/prim/libera-f/${cal}`, cal);
                     break;
                 case "va18":
-                    extractEvents(`${URL}/prim/libera-f/${cal}`,cal);
+                    extractEvents(`${URL}/prim/libera-f/${cal}`, cal);
+                    break;
+                case "va19":
+                    extractEvents(`${URL}/prim/libera-mista/${cal}`, cal);
                     break;
                 case "va20":
-                    extractEvents(`${URL}/prim/libera-mista/${cal}`,cal);
+                    extractEvents(`${URL}/prim/libera-mista/${cal}`, cal);
+                    break;
+                case "va21":
+                    extractEvents(`${URL}/prim/libera-mista/${cal}`, cal);
+                    break;
+                case "va22":
+                    extractEvents(`${URL}/prim/libera-mista/${cal}`, cal);
                     break;
             }
-
-        }, (interval+i*interval)*1000);
+        }, (interval + i * interval) * 1000);
         i++;
     }
 };
