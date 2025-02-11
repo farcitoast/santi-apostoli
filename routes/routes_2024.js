@@ -176,83 +176,83 @@ router.get('/inv/libera-mista/va17', (req, res) =>{
     });
 });
 
-// const calendari_prim = {
-//     va08: [categorie.u14,6777],
-//     va18: [categorie.libera_f,6794],
-//     va19: [categorie.libera_mista,6796],
-//     va20: [categorie.libera_mista,6799],
-//     va21: [categorie.libera_mista,6801]
-// };  
+const calendari_prim = {
+    va03: [categorie.u13,8334],
+    va10: [categorie.u16,8349],
+    va17: [categorie.libera_f,8363],
+    va18: [categorie.libera_f,8366],
+    va20: [categorie.libera_mista,8372]
+};  
 
-// /** PRIMAVERILE */
-// router.get('/prim/u14/va08', (req, res) =>{
-//     const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va08[1]+'-CALENDAR.html');
-//     const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va08[1]+'-RANKING.html');
+/** PRIMAVERILE */
+router.get('/prim/u13/va03', (req, res) =>{
+    const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va03[1]+'-CALENDAR.html');
+    const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va03[1]+'-RANKING.html');
     
-//     res.render('table',{
-//         active_u14: true,
-//         table: true,
-//         helpers: {
-//             calendar: function () { return calendar_rows; },
-//             rank: function() { return rank_rows }
-//         }
-//     });
-// });
+    res.render('table',{
+        active_u13: true,
+        table: true,
+        helpers: {
+            calendar: function () { return calendar_rows; },
+            rank: function() { return rank_rows }
+        }
+    });
+});
 
-// router.get('/prim/libera-f/va18', (req, res) =>{
-//     const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va18[1]+'-CALENDAR.html');
-//     const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va18[1]+'-RANKING.html');
+router.get('/prim/u16/va10', (req, res) =>{
+    const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va10[1]+'-CALENDAR.html');
+    const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va10[1]+'-RANKING.html');
     
-//     res.render('table',{
-//         active_libera_f: true,
-//         table: true,
-//         helpers: {
-//             calendar: function () { return calendar_rows; },
-//             rank: function() { return rank_rows }
-//         }
-//     });
-// });
+    res.render('table',{
+        active_u16: true,
+        table: true,
+        helpers: {
+            calendar: function () { return calendar_rows; },
+            rank: function() { return rank_rows }
+        }
+    });
+});
 
-// router.get('/prim/libera-mista/va19', (req, res) =>{
-//     const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va19[1]+'-CALENDAR.html');
-//     const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va19[1]+'-RANKING.html');
+router.get('/prim/libera-f/va17', (req, res) =>{
+    const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va17[1]+'-CALENDAR.html');
+    const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va17[1]+'-RANKING.html');
     
-//     res.render('table',{
-//         active_libera: true,
-//         table: true,
-//         helpers: {
-//             calendar: function () { return calendar_rows; },
-//             rank: function() { return rank_rows }
-//         }
-//     });
-// });
+    res.render('table',{
+        active_libera_f: true,
+        table: true,
+        helpers: {
+            calendar: function () { return calendar_rows; },
+            rank: function() { return rank_rows }
+        }
+    });
+});
 
-// router.get('/prim/libera-mista/va20', (req, res) =>{
-//     const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va20[1]+'-CALENDAR.html');
-//     const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va20[1]+'-RANKING.html');
+router.get('/prim/libera-f/va18', (req, res) =>{
+    const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va18[1]+'-CALENDAR.html');
+    const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va18[1]+'-RANKING.html');
     
-//     res.render('table',{
-//         active_libera: true,
-//         table: true,
-//         helpers: {
-//             calendar: function () { return calendar_rows; },
-//             rank: function() { return rank_rows }
-//         }
-//     });
-// });
+    res.render('table',{
+        active_libera_f: true,
+        table: true,
+        helpers: {
+            calendar: function () { return calendar_rows; },
+            rank: function() { return rank_rows }
+        }
+    });
+});
 
-// router.get('/prim/libera-mista/va21', (req, res) =>{
-//     const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va21[1]+'-CALENDAR.html');
-//     const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va21[1]+'-RANKING.html');
+router.get('/prim/libera-mista/va20', (req, res) =>{
+    const calendar_rows = fs.readFileSync('cache/table-'+calendari_prim.va20[1]+'-CALENDAR.html');
+    const rank_rows = fs.readFileSync('cache/table-'+calendari_prim.va20[1]+'-RANKING.html');
     
-//     res.render('table',{
-//         active_libera: true,
-//         table: true,
-//         helpers: {
-//             calendar: function () { return calendar_rows; },
-//             rank: function() { return rank_rows }
-//         }
-//     });
-// });
+    res.render('table',{
+        active_libera: true,
+        table: true,
+        helpers: {
+            calendar: function () { return calendar_rows; },
+            rank: function() { return rank_rows }
+        }
+    });
+});
 
 module.exports = router
